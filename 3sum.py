@@ -1,25 +1,35 @@
 from typing import List
-class Solution:
-    def threesum(self, nums: List[int]) -> List[list[int]]:
-        output = []
-        for i in nums:
-            for j in nums:
-                for k in nums:
-                        a = nums.index(i)
-                        b = nums.index(j)
-                        c = nums.index(k)
-                        if i + j + k == 0 and a != b != c:
-                            output.append([i,j,k])
-        seen = set()
-        unique = []
+import ast
 
-        for t in output:
-            key = tuple(sorted(t))   # canonical representation
-            if key not in seen:
-                seen.add(key)
-                unique.append(list(key))
-        return unique
+def threesum(nums: List[int])-> List[List[int]]:
+    nums.sort()
+    output = []
+    n = len(nums)
 
-nums = [-5, -4, -3, -2, -1, 0, 1, 2, 3, 4, 5]
-sol = Solution()
-print(sol.threesum(nums))
+    for i in range(n):
+        if nums[i]> 0:
+            break
+        if i > 0 and nums[i] == nums[i-1]:
+            continue
+
+        l,r = i+1,n-1
+        while l < r:
+            sum = nums[i]+nums[l]+nums[r]
+
+            if sum <0:
+                l += 1
+            elif sum > 0:
+                r -= 1
+            else:
+                output.append([nums[i],nums[l],nums[r]])
+                l += 1
+                r -= 1
+                while l < r and nums[l] == nums[l-1]:
+                    l += 1
+                while l < r and nums[r] == nums[r+1]:
+                    r -= 1
+
+    print(output)
+
+nums = ast.literal_eval(input("Enter the List: "))
+threesum(nums)
