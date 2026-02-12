@@ -1,6 +1,9 @@
 def check_feel_good(n, s):
     temp = 0
-    n = len(s)
+    s = s.replace(" ","")
+    s= s.strip(" ")
+    if len(s) != n:
+        n = len(s)
     for i in range(n):
         if s[i] == "a":
             temp += 1
@@ -17,6 +20,9 @@ def check_feel_good(n, s):
         elif s[i] == "u":
             temp += 1
             continue
+
+    # vowel = "aeiou"
+    # temp = sum(1 for ch in s if ch in vowel)
         
     if temp >= int(n/2):
         print("Feel Good")
