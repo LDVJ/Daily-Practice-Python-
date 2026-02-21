@@ -6,4 +6,4 @@ def check_hiring(n, salaries, k):
     if expected <= k:
         print("Hire")
     else:
-        print("No Hire")
+        print("No Hire")    
