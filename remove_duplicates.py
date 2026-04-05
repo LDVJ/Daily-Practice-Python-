@@ -1,10 +1,12 @@
-value = list(input("Enter your list Value: "))
+value = list(input("Enter your list Value: ").split(" "))
 # value = [1, "1", 1]
 
 output = []
 
-for chr in value:
-    if chr not in output and chr != " ":
-        output.append(chr)
+for item in value:
+    if item.isdigit() or (item.startswith("-") and item.lstrip("-").isdigit()):
+        item = int(item)
+    if item not in output and item != " ":
+        output.append(item)
 
 print(output)

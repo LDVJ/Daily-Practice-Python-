@@ -1,8 +1,9 @@
-try:
-    n = int(input("Enter your Value: "))
+def test_funct():
+    try:
+        n = int(input("Enter your Value: "))
 
-    for i in range(1,n+1):
-        print("*" * i)
+        for i in range(1,n+1):
+            print("*" * i)
 
-except ValueError:
-    print("Invalid Value.")
+    except ValueError:
+        print("Invalid Value.")
