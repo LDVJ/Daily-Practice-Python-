@@ -1,0 +1,13 @@
+class Complex:
+    num1 = 0
+    num2 = 0
+    def __init__(self, num1, num2):
+        self.num1 = num1
+        self.num2 = num2
+    
+    def sum(self):
+        print("Sum of complex number :",self.num1 + self.num2)
+
+
+c1 = Complex(1+2j, 3+4j)
+c1.sum()
